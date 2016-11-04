@@ -1,0 +1,175 @@
+{
+    "ccimport": {
+        "prefix": "cimport",
+        "description": "import the deafults for a controller",
+        "body": [
+            "import {",
+            "    CCController, CCService, Id,",
+            "    get, post, put, del,",
+            "    Request, Response",
+            "} from 'ccd'",
+            "",
+            "$1"
+        ]
+    },
+    "Full Scaffold": {
+        "prefix": "cfull",
+        "description": "Creates Controller and service",
+        "body": [
+            "import {",
+            "    CCController, CCService, Id,",
+            "    get, post, put, del,",
+            "    Request, Response",
+            "} from 'ccd'",
+            "",
+            "class ${Model}Svc extends CCService<${1:Model}>{",
+            "",
+            "}",
+            "",
+            "class ${1:Model}Ctrl extends CCController{",
+            "    svc = new ${Model}Svc('${Model}')",
+            "    $2",
+            "}"
+        ]
+    },
+    "Create ccd controller": {
+        "prefix": "cctrl",
+        "description": "Creates empty CCController",
+        "body": [
+            "class ${Model}Ctrl extends CCController{",
+            "    $2",
+            "}"
+        ]
+    },
+    "Create handler method": {
+        "prefix": "@cv",
+        "description": "Creates new empty route handler",
+        "body": [
+            "@${1:get}('/$2')",
+            "${2:index}(req:Request, res:Response){",
+            "	$4",
+            "}"
+        ]
+    },
+    "Create get handler": {
+        "prefix": "@get",
+        "description": "Creates new get route handler method",
+        "body": [
+            "@get('/$1')",
+            "${2:index}(req:Request, res:Response){",
+            "	$3",
+            "}"
+        ]
+    },
+    "Create post handler": {
+        "prefix": "@post",
+        "description": "Creates new put route handler method",
+        "body": [
+            "@post('/$1')",
+            "${2:update}(req:Request, res:Response){",
+            "	$3",
+            "}"
+        ]
+    },
+    "Create put handler": {
+        "prefix": "@put",
+        "description": "Creates new put route handler method",
+        "body": [
+            "@put('/$1')",
+            "${2:create}(req:Request, res:Response){",
+            "	$3",
+            "}"
+        ]
+    },
+    "Create delete handler": {
+        "prefix": "@delete",
+        "description": "Creates new delete route handler method",
+        "body": [
+            "@del('/$1')",
+            "${2:remove}(req:Request, res:Response){",
+            "	$3",
+            "}"
+        ]
+    },
+    "Create ccd service": {
+        "prefix": "csvc",
+        "description": "Creates new empty CCService",
+        "body": [
+            "class ${Model}Svc extends CCService<${1:Model}>{",
+            "	$2",
+            "}"
+        ]
+    },
+    "Create ccd service controller": {
+        "prefix": "csvctrl",
+        "description": "Creates new empty CCServiceController",
+        "body": [
+            "class ${Model}Ctrl extends CCServiceCtrl<${Model}>{",
+            "	$2",
+            "}"
+        ]
+    },
+    "CCService override of the byId method": {
+        "prefix": "byId",
+        "description": "CCService override of the byId method",
+        "body": [
+            "byId(id: Id, callback?: Clb<${Model}>): Promise<${Model}>{",
+            "    return ${1:this.model.findById(id).exec(callback)};",
+            "}"
+        ]
+    },
+    "CCService override of the updateById method": {
+        "prefix": "updateById",
+        "description": "CCService override of the updateById method",
+        "body": [
+            "updateById(id: Id, update: any, callback?: Clb<${Model}>): Promise<${Model}>{",
+            "    return ${1:this.model.findByIdAndUpdate(id, update, { new: true }).exec(callback);}",
+            "}"
+        ]
+    },
+    "CCService override of the deleteById method": {
+        "prefix": "deleteById",
+        "description": "CCService override of the deleteById method",
+        "body": [
+            "deleteById(id: Id, callback?: Clb<${Model}>): Promise<${Model}>{",
+            "    return ${1:this.model.findByIdAndRemove(id).exec(callback)};",
+            "}"
+        ]
+    },
+    "CCService override of the insert method": {
+        "prefix": "insert",
+        "description": "CCService override of the insert method",
+        "body": [
+            "insert(document: ${Model}, callback?: Clb<${Model}>): Promise<${Model}>{",
+            "    return ${1:document.save(callback)};",
+            "}"
+        ]
+    },
+    "CCService override of the create method": {
+        "prefix": "create",
+        "description": "CCService override of the create method",
+        "body": [
+            "create(document: any = {}, callback?: Clb<${Model}>): Promise<${Model}>{",
+            "    return $1;",
+            "}"
+        ]
+    },
+    "CCService override of the createAndSave method": {
+        "prefix": "createAndSave",
+        "description": "CCService override of the createAndSave method",
+        "body": [
+            "createAndSave(document: any, callback?: Clb<${Model}>): Promise<${Model}> {",
+            "return ${1:this.insert(this.create(document), callback)};",
+            "}"
+        ]
+    },
+    "CCService override of the createAndSaveMany method": {
+        "prefix": "createAndSaveMany",
+        "description": "CCService override of the createAndSaveMany method",
+        "body": [
+            "createAndSaveMany(documents: any[], callback?: Clb<${Model}[]>): Promise<${Model}[]> {",
+            "    return ${1:this.model.create(documents, callback)};",
+            "}"
+        ]
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "name": "ccd-typescript",
+    "version": "0.1.0",
+    "publisher": "Code Chemistry",
+    "displayName": "CCD Typescript snippets",
+    "description": "Typescript snippets for the CCD Web Framework",
+    "author": "Costa Halicea",
+    "engines": { "vscode": "1.x.x" },
+    "categories": ["Snippets"], 
+    "contributes": {
+        "snippets": [
+            {
+                "language": "typescript",
+                "path": "./snippets/typescript.json"
+            }
+        ]
+    },
+    "icon": "images/ccdLogo.png",
+	"galleryBanner": {
+		"color": "#5c2d91",
+		"theme": "light"
+	}
+}
