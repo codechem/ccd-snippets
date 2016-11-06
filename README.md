@@ -1,8 +1,11 @@
-<img src='./images/ccdLogo.png' style='height:100px; margin-left:20px;margin-right:20px;' />
-
+<img src="https://raw.githubusercontent.com/codechem/ccd-snippets/master/images/ccdLogo.png"></img>
 # Various typescript snippets for the CCD Framework
+You can get CCD at [https://github.com/codechem/ccd](https://github.com/codechem/ccd)
 
-
+or just: 
+```bash 
+  shell>npm install ccd
+```
 
 ## Available snippets
   1. cfull : Creates Controller and Service
